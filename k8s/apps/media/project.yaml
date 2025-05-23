@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: media
+  namespace: argocd
+spec:
+  sourceRepos:
+    - 'https://github.com/vehagn/homelab'
+  destinations:
+    - namespace: 'argocd'
+      server: '*'
+    - namespace: 'arr'
+      server: '*'
+    - namespace: 'audiobookshelf'
+      server: '*'
+    - namespace: 'plex'
+      server: '*'
+    - namespace: 'jellyfin'
+      server: '*'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
